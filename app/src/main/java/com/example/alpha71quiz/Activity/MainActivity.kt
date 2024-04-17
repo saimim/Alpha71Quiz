@@ -1,9 +1,10 @@
-package com.example.alpha71quiz
+package com.example.alpha71quiz.Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Window
 import androidx.core.content.ContextCompat
+import com.example.alpha71quiz.R
 import com.example.alpha71quiz.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -14,6 +15,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val window:Window=this@MainActivity.window
-        window.statusBarColor=ContextCompat.getColor(this@MainActivity,R.color.grey)
+        window.statusBarColor=ContextCompat.getColor(this@MainActivity, R.color.grey)
     }
 }
