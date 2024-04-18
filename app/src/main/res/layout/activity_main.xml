@@ -385,7 +385,7 @@
         </LinearLayout>
     </ScrollView>
     <com.ismaeldivita.chipnavigation.ChipNavigationBar
-        android:id="@+id/menu"
+        android:id="@+id/bottomMenu"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:cnb_iconSize="24dp"

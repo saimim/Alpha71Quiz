@@ -109,7 +109,7 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <TextView
-                        android:id="@+id/titleTop1Text"
+                        android:id="@+id/titleTop3Txt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="title"
@@ -197,7 +197,7 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <TextView
-                        android:id="@+id/titleTop1Text"
+                        android:id="@+id/titleTop1Txt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="title"
@@ -275,7 +275,7 @@
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <TextView
-                        android:id="@+id/titleTop1Text"
+                        android:id="@+id/titleTop2Txt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="title"
@@ -322,7 +322,7 @@
         </LinearLayout>
     </ScrollView>
     <com.ismaeldivita.chipnavigation.ChipNavigationBar
-        android:id="@+id/menu"
+        android:id="@+id/bottomMenu"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:cnb_iconSize="24dp"
