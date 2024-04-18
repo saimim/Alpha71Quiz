@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Window
 import androidx.core.content.ContextCompat
+import com.bumptech.glide.Glide
 import com.example.alpha71quiz.Adapter.LeaderAdapter
 import com.example.alpha71quiz.Domain.UserModel
 import com.example.alpha71quiz.R
@@ -23,9 +24,37 @@ class LeaderActivity : AppCompatActivity() {
 
 
         binding.apply {
-            binding.scoreTop1Text.text=loadData().get(0).score.toString()
-            binding.scoreTop2Text.text=loadData().get(1).score.toString()
-            binding.scoreTop3Text.text=loadData().get(2).score.toString()
+            scoreTop1Text.text=loadData().get(0).score.toString()
+            scoreTop2Text.text=loadData().get(1).score.toString()
+            scoreTop3Text.text=loadData().get(2).score.toString()
+            titleTop1Txt.text=loadData().get(0).name
+            titleTop2Txt.text=loadData().get(1).name
+            titleTop3Txt.text=loadData().get(2).name
+
+            val drawableResourceId1:Int=binding.root.resources.getIdentifier(
+                loadData().get(0).pic,"drawable",binding.root.context.packageName
+            )
+
+            Glide.with(root.context)
+                .load(drawableResourceId1)
+                .into(pic1)
+
+            val drawableResourceId2:Int=binding.root.resources.getIdentifier(
+                loadData().get(1).pic,"drawable",binding.root.context.packageName
+            )
+
+            Glide.with(root.context)
+                .load(drawableResourceId2)
+                .into(pic1)
+
+            val drawableResourceId3:Int=binding.root.resources.getIdentifier(
+                loadData().get(2).pic,"drawable",binding.root.context.packageName
+            )
+
+            Glide.with(root.context)
+                .load(drawableResourceId3)
+                .into(pic1)
+
 
         }
     }
