@@ -51,7 +51,10 @@ class QuestionAdapter(
         if(differ.currentList.size==5 && currentPos==position){
             binding.answerTxt.setBackgroundResource(R.drawable.green_background)
             binding.answerTxt.setTextColor(ContextCompat.getColor(binding.root.context,R.color.white))
+            val drawable=ContextCompat.getDrawable(binding.root.context,R.drawable.tick)
+            binding.answerTxt.setCompoundDrawablesRelativeWithIntrinsicBounds(null,null,drawable,null)
         }
+
 
 
     }
