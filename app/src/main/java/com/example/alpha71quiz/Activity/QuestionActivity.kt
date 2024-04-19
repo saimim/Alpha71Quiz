@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Window
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.alpha71quiz.Adapter.QuestionAdapter
 import com.example.alpha71quiz.Domain.QuestionModel
 import com.example.alpha71quiz.R
@@ -26,7 +27,13 @@ class QuestionActivity : AppCompatActivity(),QuestionAdapter.score {
         receivedList=intent.getParcelableArrayListExtra<QuestionModel>("lis")!!.toMutableList()
 
         binding.apply {
+            backBtn.setOnClickListener{ finish()}
+            progressBar.progress=1
 
+            questionTxt.text = receivedList[position].question
+            val drawableResourceId: Int=binding.root.resources.getIdentifier(
+
+            )
         }
     }
 private fun loadAnswers(){
@@ -46,12 +53,13 @@ private fun loadAnswers(){
 
     questionAdapter.differ.submitList(users)
     binding.questionList.apply {
-        layoutManager =
+        layoutManager = LinearLayoutManager(this@QuestionActivity)
+        adapter = questionAdapter
     }
    }
 
     override fun amount(number: Int, clickedAnswer: String) {
         allScore+=number
-           receivedList[position].clickedAnswer=clickedAnswer
+        receivedList[position].clickedAnswer=clickedAnswer
     }
 }
