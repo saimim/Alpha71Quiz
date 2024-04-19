@@ -104,9 +104,22 @@ class QuestionAdapter(
             notifyDataSetChanged()
 
             if(currentPos==position){
+                binding.answerTxt.setBackgroundResource(R.drawable.green_background)
+                binding.answerTxt.setTextColor(ContextCompat.getColor(binding.root.context,R.color.white))
+                val drawable=ContextCompat.getDrawable(binding.root.context,R.drawable.tick)
+                binding.answerTxt.setCompoundDrawablesRelativeWithIntrinsicBounds(null,null,drawable,null)
+                returnScore.amount(5,str)
 
             }
+            else{
+                binding.answerTxt.setBackgroundResource(R.drawable.red_background)
+                binding.answerTxt.setTextColor(ContextCompat.getColor(binding.root.context,R.color.white))
+                val drawable=ContextCompat.getDrawable(binding.root.context,R.drawable.thieves)
+                binding.answerTxt.setCompoundDrawablesRelativeWithIntrinsicBounds(null,null,drawable,null)
+                returnScore.amount(0,str)
+            }
         }
+        if(differ.currentList.size==5) holder.itemView.setOnClickListener(null)
 
 
 
