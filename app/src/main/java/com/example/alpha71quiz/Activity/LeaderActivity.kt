@@ -1,9 +1,11 @@
 package com.example.alpha71quiz.Activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Window
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.alpha71quiz.Adapter.LeaderAdapter
 import com.example.alpha71quiz.Domain.UserModel
@@ -45,7 +47,7 @@ class LeaderActivity : AppCompatActivity() {
 
             Glide.with(root.context)
                 .load(drawableResourceId2)
-                .into(pic1)
+                .into(pic2)
 
             val drawableResourceId3:Int=binding.root.resources.getIdentifier(
                 loadData().get(2).pic,"drawable",binding.root.context.packageName
@@ -53,7 +55,26 @@ class LeaderActivity : AppCompatActivity() {
 
             Glide.with(root.context)
                 .load(drawableResourceId3)
-                .into(pic1)
+                .into(pic3)
+
+
+            bottomMenu.setItemSelected(R.id.Board)
+            bottomMenu.setOnItemSelectedListener {
+                if(it == R.id.Home){
+                    startActivity(Intent(this@LeaderActivity,MainActivity::class.java))
+                }
+            }
+            var list:MutableList<UserModel> = loadData()
+            list.removeAt(0)
+            list.removeAt(1)
+            list.removeAt(2)
+
+            leaderAdapter.differ.submitList(list)
+
+            leaderView.apply {
+                layoutManager=LinearLayoutManager(this@LeaderActivity)
+                adapter=leaderAdapter
+            }
 
 
         }

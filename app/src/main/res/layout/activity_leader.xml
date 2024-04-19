@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/grey"
     tools:context=".Activity.LeaderActivity">
 
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
@@ -189,7 +190,6 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="-2dp"
-                            android:src="@tools:sample/avatars"
                             app:layout_constraintBottom_toTopOf="@+id/pic1"
                             app:layout_constraintEnd_toEndOf="@+id/pic1"
                             app:layout_constraintStart_toStartOf="@+id/pic1"
@@ -320,7 +320,7 @@
                 android:layout_height="match_parent" />
 
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
     <com.ismaeldivita.chipnavigation.ChipNavigationBar
         android:id="@+id/bottomMenu"
         android:layout_width="match_parent"

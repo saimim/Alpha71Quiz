@@ -13,4 +13,5 @@
     <item name="Board" type="id" />
     <item name="favorites" type="id" />
     <item name="profile" type="id" />
+    <item name="Home" type="id" />
 </resources>
