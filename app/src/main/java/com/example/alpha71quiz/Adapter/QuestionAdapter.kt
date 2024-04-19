@@ -1,6 +1,7 @@
 package com.example.alpha71quiz.Adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -53,6 +54,58 @@ class QuestionAdapter(
             binding.answerTxt.setTextColor(ContextCompat.getColor(binding.root.context,R.color.white))
             val drawable=ContextCompat.getDrawable(binding.root.context,R.drawable.tick)
             binding.answerTxt.setCompoundDrawablesRelativeWithIntrinsicBounds(null,null,drawable,null)
+        }
+        if(differ.currentList.size==5){
+            var clickedPos = 0
+            when(differ.currentList[4]){
+                "a" ->{
+                    clickedPos = 0
+                }
+                "b" ->{
+                    clickedPos = 1
+                }
+                "c" ->{
+                    clickedPos = 2
+                }
+                "d" ->{
+                    clickedPos = 3
+                }
+            }
+            if(clickedPos==position && clickedPos != currentPos){
+                binding.answerTxt.setBackgroundResource(R.drawable.red_background)
+                binding.answerTxt.setTextColor(ContextCompat.getColor(binding.root.context,R.color.white))
+                val drawable=ContextCompat.getDrawable(binding.root.context,R.drawable.thieves)
+                binding.answerTxt.setCompoundDrawablesRelativeWithIntrinsicBounds(null,null,drawable,null)
+            }
+
+        }
+        if(position==4){
+            binding.root.visibility=View.GONE
+        }
+
+        holder.itemView.setOnClickListener{
+            var str = ""
+            when(position){
+                0->{
+                    str="a"
+                }
+                1->{
+                    str="b"
+                }
+                2->{
+                    str="c"
+                }
+                3->{
+                    str="d"
+                }
+            }
+
+            user.add(4,str)
+            notifyDataSetChanged()
+
+            if(currentPos==position){
+
+            }
         }
 
 
