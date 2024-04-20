@@ -7,8 +7,6 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.alpha71quiz.Domain.QuestionModel
-import com.example.alpha71quiz.Domain.UserModel
 import com.example.alpha71quiz.R
 import com.example.alpha71quiz.databinding.ViewholderQuestionBinding
 
@@ -27,8 +25,8 @@ class QuestionAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuestionAdapter.Viewholder {
         val inflater=LayoutInflater.from(parent.context)
-        binding=ViewholderQuestionBinding.inflate(inflater,parent,false)
-        return Viewholder()
+        val binding=ViewholderQuestionBinding.inflate(inflater,parent,false)
+        return Viewholder(binding)
     }
 
     override fun onBindViewHolder(holder: QuestionAdapter.Viewholder, position: Int) {
@@ -75,7 +73,11 @@ class QuestionAdapter(
                 binding.answerTxt.setBackgroundResource(R.drawable.red_background)
                 binding.answerTxt.setTextColor(ContextCompat.getColor(binding.root.context,R.color.white))
                 val drawable=ContextCompat.getDrawable(binding.root.context,R.drawable.thieves)
-                binding.answerTxt.setCompoundDrawablesRelativeWithIntrinsicBounds(null,null,drawable,null)
+                binding.answerTxt.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                    null,
+                    null,
+                    drawable,
+                    null)
             }
 
         }
@@ -115,7 +117,12 @@ class QuestionAdapter(
                 binding.answerTxt.setBackgroundResource(R.drawable.red_background)
                 binding.answerTxt.setTextColor(ContextCompat.getColor(binding.root.context,R.color.white))
                 val drawable=ContextCompat.getDrawable(binding.root.context,R.drawable.thieves)
-                binding.answerTxt.setCompoundDrawablesRelativeWithIntrinsicBounds(null,null,drawable,null)
+                binding.answerTxt.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                    null,
+                    null,
+                    drawable,
+                    null
+                )
                 returnScore.amount(0,str)
             }
         }
@@ -127,7 +134,7 @@ class QuestionAdapter(
 
     override fun getItemCount()=differ.currentList.size
 
-    inner class Viewholder:RecyclerView.ViewHolder(binding.root)
+    inner class Viewholder(private val binding: ViewholderQuestionBinding) : RecyclerView.ViewHolder(binding.root)
 
     private val differCallback=object : DiffUtil.ItemCallback<String>(){
         override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {

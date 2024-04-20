@@ -30,7 +30,8 @@ class QuestionActivity : AppCompatActivity(),QuestionAdapter.score {
         val window: Window =this@QuestionActivity.window
         window.statusBarColor= ContextCompat.getColor(this@QuestionActivity, R.color.grey)
 
-        receivedList=intent.getParcelableArrayListExtra<QuestionModel>("lis")!!.toMutableList()
+        receivedList = intent.getParcelableArrayListExtra<QuestionModel>("list")?.toMutableList() ?: mutableListOf()
+
 
         binding.apply {
             backBtn.setOnClickListener{ finish()}

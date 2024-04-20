@@ -27,11 +27,11 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             singleBtn.setOnClickListener {
-                val intent=Intent(this@MainActivity,QuestionActivity::class.java)
-                intent.putParcelableArrayListExtra("list",ArrayList(questionList()))
+                val intent = Intent(this@MainActivity, QuestionActivity::class.java)
+                intent.putParcelableArrayListExtra("list", ArrayList(questionList()))
                 startActivity(intent)
-
             }
+
         }
     }
 
